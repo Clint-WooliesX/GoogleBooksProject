@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 10px;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+.banner-image {
+  height: 150px;
+}
+
+.search-bar {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.search-bar__input {
+  width: 650px;
+  height: 39px;
+  padding-left: 10px;
+  font-size: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-right: 0px;
+}
+.search-bar__input:focus {
+  outline: none;
+}
+.search-bar__button {
+  height: 39px;
+  width: 100px;
+  font-size: 20px;
+  border-left: 0px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.search-results {
+  justify-self: center;
+  display: grid;
+  justify-content: space-between;
+  width: 80vw;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-flow: row;
+  gap: 30px;
+  margin-top: 30px;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.scene {
+  width: 200px;
+  height: 260px;
+  perspective: 600px;
+  justify-self: center;
+}
+.scene:hover .card {
+  transition: transform 1s;
+  transform: rotateY(180deg);
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 250ms;
+  transform-style: preserve-3d;
+}
+
+.card__face {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+}
+
+.card__face--front {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  filter: drop-shadow(6px 6px 12px black);
+}
+
+.card__face--back {
+  padding: 10px;
+  text-align: center;
+  border-radius: 20px;
+  background-color: whitesmoke;
+  transition: 250ms;
+  filter: drop-shadow(6px 6px 12px black);
+  border: 5px solid;
+  border-left-color: blue;
+  border-top-color: red;
+  border-right-color: yellow;
+  border-bottom-color: green;
+  overflow: hidden;
+  transform: rotateY(180deg);
+}
+
+.cover {
+  border-radius: 15px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+.book_details {
+  text-align: left;
+}
+.book_details--text {
+  margin-bottom: 10px;
+}
