@@ -45,17 +45,20 @@ header {
 .modal {
   display: none;
   justify-content: center;
+  padding: 30px;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal_box {
   width: 60vw;
-  height: 80vh;
+  height: 100%;
   padding: 15px;
+  position: relative;
+  overflow: hidden;
   background-color: antiquewhite;
   border-radius: 20px;
   border: 10px solid;
@@ -66,16 +69,16 @@ header {
 }
 
 .modal_grid {
+  display: grid;
   grid-template-areas: "a a a", "b b c", "d d d";
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
 }
 
 .book_cover_img {
-  display: grid;
   grid-area: b;
   width: 100px;
-  height: 320px;
+  height: 40px;
   border: 2px solid black;
   border-radius: 20px;
 }
@@ -87,9 +90,9 @@ header {
 }
 
 .book_author {
-  grid-area: c;
+  grid-area: d;
   width: 100px;
-  height: 320px;
+  height: 60px;
   border: 2px solid black;
   border-radius: 20px;
 }
@@ -97,7 +100,7 @@ header {
 .book_author_name {
   grid-area: c;
   width: 100px;
-  height: 320px;
+  height: 60px;
   border: 2px solid black;
   border-radius: 20px;
 }
