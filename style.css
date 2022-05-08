@@ -4,10 +4,6 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-body {
-  margin: 10px;
-}
-
 header {
   display: flex;
   justify-content: center;
@@ -19,6 +15,7 @@ header {
 
 .search-bar {
   width: 90%;
+  padding: 10px;
   margin: auto;
   display: flex;
   justify-content: center;
@@ -43,6 +40,66 @@ header {
   border-left: 0px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+}
+
+.modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal_box {
+  width: 60vw;
+  height: 80vh;
+  padding: 15px;
+  background-color: antiquewhite;
+  border-radius: 20px;
+  border: 10px solid;
+  border-left-color: blue;
+  border-top-color: red;
+  border-right-color: yellow;
+  border-bottom-color: green;
+}
+
+.modal_grid {
+  grid-template-areas: "a a a", "b b c", "d d d";
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+}
+
+.book_cover_img {
+  display: grid;
+  grid-area: b;
+  width: 100px;
+  height: 320px;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+.book_title {
+  grid-area: c;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+.book_author {
+  grid-area: c;
+  width: 100px;
+  height: 320px;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+.book_author_name {
+  grid-area: c;
+  width: 100px;
+  height: 320px;
+  border: 2px solid black;
+  border-radius: 20px;
 }
 
 .search-results {
