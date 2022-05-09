@@ -26,7 +26,7 @@ export const book2grid = (input) => {
         var html = [
             // '<div class="scene">',
             `<div class="card">`,
-            `<div class="card__face card__face--front"><img class="cover" src=${input[i].imageLinks}></div>`,
+            `<div id="card${i}" class="card__face card__face--front"><img class="cover" src=${input[i].imageLinks}></div>`,
             `<div class="card__face card__face--back">`,
             `<h4 class="book_details">Author:</h4>`,
             `<p class="book_details--text">${input[i].authors}</p>`,
@@ -39,11 +39,23 @@ export const book2grid = (input) => {
         ].join('');
 
 
+
         var div = document.createElement('div');
         div.setAttribute('class', 'scene', 'id', 'book' + i);
         div.setAttribute('id', 'book' + i);
 
         div.innerHTML = html;
         document.getElementById('search-results').appendChild(div);
+
+        var unknownDiv = document.createElement('div');
+        unknownDiv.setAttribute('class', 'hidden_title');
+        let unknownHTML = [`<h4 class="hidden_title--${i}">${input[i].title}<h4>`]
+        unknownDiv.innerHTML = unknownHTML;
+        if (input[i].imageLinks == "./images/bookCover.png") {
+
+        console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!was this even run');
+        let bookID="card"+i
+            document.getElementById(bookID).appendChild(unknownDiv);}
+
     }
 };

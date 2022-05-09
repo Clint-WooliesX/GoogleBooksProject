@@ -42,22 +42,21 @@ header {
     border-bottom-right-radius: 20px;
   }
 }
-
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .modal {
   display: none;
   justify-content: center;
-  padding:30px;
+  padding: 30px;
   align-items: center;
   width: 100vw;
   height: 100%;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.5);
 }
 .modal_box {
-  width: 60vw;
-  height: 100%;
+  min-width: fit-content;
+  height: fit-content;
   padding: 15px;
-  position:relative;
+  position: relative;
   overflow: hidden;
   background-color: antiquewhite;
   border-radius: 20px;
@@ -66,45 +65,44 @@ header {
   border-top-color: red;
   border-right-color: yellow;
   border-bottom-color: green;
+  box-shadow: 0 0 0 max(100vh, 100vw) rgba(0, 0, 0, 0.7);
 }
 .modal_grid {
-  display:grid;
-  grid-template-areas:
-  'a a a', 
-  'b b c', 
-  'd d d';
-
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  max-width: 900px;
   justify-content: center;
 }
-.book_cover_img {
-
-  grid-area: b;
-  width: 100px;
-  height: 40px;
-  border: 2px solid black;
-  border-radius: 20px;
+.book_cover {
+  margin: 10px;
+  &__image {
+    border-radius: 20px;
+  }
 }
 .book_title {
-  grid-area: c;
-  border: 2px solid black;
-  border-radius: 20px;
+  text-align: center;
+  margin-bottom: 15px;
 }
-.book_author {
-  grid-area: d;
-  width: 100px;
-  height: 60px;
-  border: 2px solid black;
-  border-radius: 20px;
+.book_data {
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  margin-bottom: 15px;
+  gap: 15px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-.book_author_name {
-  grid-area: c;
-  width: 100px;
-  height: 60px;
-  border: 2px solid black;
-  border-radius: 20px;
+@media screen and (max-width: 700px) {
+  .book_data {
+    grid-template-columns: 1fr 1fr;
+  }
 }
-
+.book_purchase {
+  display: flex;
+  justify-content: space-evenly;
+  &--price {
+    display: flex;
+  }
+}
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .search-results {
   justify-self: center;
   display: grid;
@@ -152,6 +150,15 @@ header {
   align-items: center;
   border-radius: 20px;
   filter: drop-shadow(6px 6px 12px black);
+}
+
+.hidden_title {
+  position: absolute;
+  top: 60px;
+  left: 40px;
+  z-index: 9;
+  color: white;
+  width: 100px;
 }
 
 .card__face--back {
