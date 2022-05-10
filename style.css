@@ -57,7 +57,7 @@ header {
   min-width: fit-content;
   height: fit-content;
   padding: 15px;
-  position: relative;
+  position: fixed;
   overflow: hidden;
   background-color: antiquewhite;
   border-radius: 20px;
@@ -198,4 +198,25 @@ header {
 }
 .book_details--text {
   margin-bottom: 10px;
+}
+
+.scroll-text {
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  height: 50vh;
+  overflow-y: scroll;
+  height: 100px;
+  resize: vertical;
+}
+
+.close {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+.close:hover {
+  color: red;
+  cursor: pointer;
 }

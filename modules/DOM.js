@@ -73,12 +73,14 @@ export const openModal = (input) => {
     // document.getElementById('modal').style = "display:flex";
 
     const html = [
-        `<div id="modal" class="modal">`,    
+        `<div id="modal" class="modal">`,
         `<div class="modal_box">`,
+        `<div class="close"><p id="closeModal">Close</p></div>`,
         `<div class="modal_grid">`,
         `<div>`,
         `<div class="book_cover">`,
         `<img class="book_cover__image" src="${input.imageLinks}">`,
+        // `<img class="book_cover__image" src="https://books.google.com/books/content?id=${input.id}&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api">`,
         `</div>`,
         `</div>`,
         `<div>`,
@@ -92,44 +94,44 @@ export const openModal = (input) => {
         `</div>`,
         `<div class="book_published">`,
         `<h4>Published:</h4>`,
-        // `<p>${input.publishedDate}</p>`,
+        `<p>${input.publishedDate}</p>`,
         `</div>`,
         `<div class="book_publisher">`,
         `<h4>Publisher:</h4>`,
-        // `<p>${input.publisher}</p>`,
+        `<p>${input.publisher}</p>`,
         `</div>`,
         `<div class="book_page_count">`,
         `<h4>Page count:</h4>`,
-        // `<p>${input.pageCount}</p>`,
+        `<p>${input.pageCount}</p>`,
         `</div>`,
         `<div class="book_format">`,
-        `<h4>Format:</h4>`,
-        // `<p>${input.format}</p>`,
+        `<h4>Ref ID:</h4>`,
+        `<p>${input.id}</p>`,
         `</div>`,
         `<div class="book_language">`,
         `<h4>Language:</h4>`,
-        // `<p>${input.language}</p>`,
+        `<p>${input.language}</p>`,
         `</div>`,
         `<div class="book_genre">`,
         `<h4>genre:</h4>`,
-        // `<p>${input.category}</p>`,
+        `<p>${input.categories}</p>`,
         `</div>`,
         `<div class="book_avg_rating">`,
         `<h4>Average rating:</h4>`,
-        // `<p>${input.avgRating}</p>`,
+        `<p>${input.averageRating}</p>`,
         `</div>`,
         `</div>`,
         `<div class="book_purchase">`,
         `<div class="book_purchase--price">`,
-        // `<h4>Price:</h4><p>${input.price}</p>`,
+        `<h4>Price:</h4><p>$${input.retailPrice}</p>`,
         `</div>`,
         `<div>`,
-        `<h4>Link google</h4>`,
+        `<h4><a href="${input.infoLink}" target="_blank">Open in Google</a></h4>`,
         `</div>`,
         `</div>`,
         `<div class="book_synopsis">`,
         `<h4>Synopsis:</h4>`,
-        `<p>${input.description}</p>`,
+        `<textarea class="scroll-text" name="" id="" cols="30" rows="10" disabled>${input.description}</textarea>`,
         `</div>`,
         `</div>`,
         `</div>`,
@@ -144,6 +146,15 @@ export const openModal = (input) => {
     div.innerHTML = html;
     document.getElementById('openModal').appendChild(div);
 
+    const closeButton = document.getElementById('closeModal');
+    const startEventListener = () => {
+        closeButton.addEventListener('click', function () {
+            console.log('close button clicked');
+             document.getElementById('modal').remove();
+        });
+        
+    };
+    startEventListener();
 
 
 

@@ -4,8 +4,8 @@ import { book2grid, domModuleReady, clearPage } from './modules/DOM.js';
 console.log('Ready...');
 domModuleReady();
 
-export const coverPlaceHolder = "./images/bookCover.png"
-let bookCollection=[]
+export const coverPlaceHolder = "./images/bookCover.png";
+let bookCollection = [];
 const searchInput = document.getElementById('searchInput');
 const submitButton = document.getElementById('submitButton');
 const gBooksURL = 'https://www.googleapis.com/books/v1/volumes?q=';
@@ -27,8 +27,6 @@ const submitSearch = (input) => {
     return gBooksURL + cleanSearchString(input) + "&maxResults=12";
 };
 
-
-
 const fetchJson = async (input) => {
     clearPage();
     const response = await fetch(submitSearch(input));
@@ -36,7 +34,7 @@ const fetchJson = async (input) => {
     const books = await response.json();
     console.log(books);
     let i = 0;
- bookCollection = books.items.map((volume) => {
+    bookCollection = books.items.map((volume) => {
 
         console.log('book' + i++);
         const output = {};
@@ -47,8 +45,40 @@ const fetchJson = async (input) => {
             else output.publishedDate = "Unknown";
         }
         catch (error) {
-            console.log(error);
             output.publishedDate = "Unknown";
+        }
+        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+
+        // Book publisher
+        try {
+            if (volume.volumeInfo.publisher)
+                output.publisher = volume.volumeInfo.publisher;
+            else output.publisher = "Unknown";
+        }
+        catch (error) {
+            output.publisher = "Unknown";
+        }
+        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+
+        // Book format
+        try {
+            if (volume.id)
+                output.id = volume.id;
+            else output.id = "Unknown";
+        }
+        catch (error) {
+            output.id = "Unknown";
+        }
+        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+
+        // Book language
+        try {
+            if (volume.volumeInfo.language)
+                output.language = volume.volumeInfo.language;
+            else output.language = "Unknown";
+        }
+        catch (error) {
+            output.language = "Unknown";
         }
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
@@ -59,7 +89,6 @@ const fetchJson = async (input) => {
             else output.title = "Unknown";
         }
         catch (error) {
-            console.log(error);
             output.title = "Unknown";
         }
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
@@ -71,7 +100,6 @@ const fetchJson = async (input) => {
             else output.description = "Unknown";
         }
         catch (error) {
-            console.log(error);
             output.description = "Unknown";
         }
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
@@ -85,7 +113,6 @@ const fetchJson = async (input) => {
             else output.author = "Unknown";
         }
         catch (error) {
-            console.log(error);
             output.author = "Unknown";
         }
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
@@ -97,7 +124,6 @@ const fetchJson = async (input) => {
             else output.pageCount = "Unknown";
         }
         catch (error) {
-            console.log(error);
             output.pageCount = "Unknown";
         }
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
@@ -108,10 +134,9 @@ const fetchJson = async (input) => {
                 for (let i = 0; i <= volume.volumeInfo.categories.length - 1; i++)
                     output.categories = volume.volumeInfo.categories[i];
             }
-            else output.categories = "Unknown";
+            else output.categories = "Unknown"
         }
         catch (error) {
-            console.log(error);
             output.categories = "Unknown";
         }
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
@@ -120,11 +145,20 @@ const fetchJson = async (input) => {
         try {
             if (volume.volumeInfo.averageRating)
                 output.averageRating = volume.volumeInfo.averageRating;
-            else output.averageRating = "Unknown";
+            output.averageRating = "No ratings";
         }
         catch (error) {
-            console.log(error);
-            output.averageRating = "Unknown";
+            output.averageRating = "No ratings";
+        }
+        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+        // Book price
+        try {
+            if (volume.saleInfo.retailPrice)
+                output.retailPrice = volume.saleInfo.retailPrice.amount;
+            else output.retailPrice = "0.00";
+        }
+        catch (error) {
+            output.averageRating = "an error";
         }
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
@@ -132,11 +166,18 @@ const fetchJson = async (input) => {
         try {
             if (volume.volumeInfo.imageLinks['thumbnail'])
                 output.imageLinks = volume.volumeInfo.imageLinks['thumbnail'];
-            else output.imageLinks = "./images/bookCover.png";
         }
         catch (error) {
-            console.log(error);
             output.imageLinks = coverPlaceHolder;
+        }
+        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+        //book link
+        try {
+            if (volume.volumeInfo.infoLink)
+                output.infoLink = volume.volumeInfo.infoLink;
+        }
+        catch (error) {
+            output.infoLink = "#";
         }
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
         return output;
@@ -154,5 +195,5 @@ window.submitSearch = submitSearch;
 window.fetchJson = fetchJson;
 window.book2grid = book2grid;
 window.bookShelf = bookShelf;
-window.clearPage = clearPage
-window.bookCollection = bookCollection
+window.clearPage = clearPage;
+window.bookCollection = bookCollection;
