@@ -4,7 +4,7 @@ import { book2grid, domModuleReady, clearPage } from './modules/DOM.js';
 console.log('Ready...');
 domModuleReady();
 
-
+export const coverPlaceHolder = "./images/bookCover.png"
 
 const searchInput = document.getElementById('searchInput');
 const submitButton = document.getElementById('submitButton');
@@ -136,7 +136,7 @@ const fetchJson = async (input) => {
         }
         catch (error) {
             console.log(error);
-            output.imageLinks = "./images/bookCover.png";
+            output.imageLinks = coverPlaceHolder;
         }
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
         return output;

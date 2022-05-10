@@ -46,6 +46,7 @@ header {
 .modal {
   display: none;
   justify-content: center;
+  z-index: 9;
   padding: 30px;
   align-items: center;
   width: 100vw;
