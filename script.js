@@ -5,7 +5,7 @@ console.log('Ready...');
 domModuleReady();
 
 export const coverPlaceHolder = "./images/bookCover.png"
-
+let bookCollection=[]
 const searchInput = document.getElementById('searchInput');
 const submitButton = document.getElementById('submitButton');
 const gBooksURL = 'https://www.googleapis.com/books/v1/volumes?q=';
@@ -36,7 +36,7 @@ const fetchJson = async (input) => {
     const books = await response.json();
     console.log(books);
     let i = 0;
-    const bookCollection = books.items.map((volume) => {
+ bookCollection = books.items.map((volume) => {
 
         console.log('book' + i++);
         const output = {};
@@ -155,3 +155,4 @@ window.fetchJson = fetchJson;
 window.book2grid = book2grid;
 window.bookShelf = bookShelf;
 window.clearPage = clearPage
+window.bookCollection = bookCollection

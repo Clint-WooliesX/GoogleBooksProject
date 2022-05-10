@@ -47,12 +47,14 @@ export const book2grid = (input) => {
         div.innerHTML = html;
         document.getElementById('search-results').appendChild(div);
 
-        const bookButton = document.getElementById('book'+i);
+        const bookButton = document.getElementById('book' + i);
         const startEventListener = () => {
             bookButton.addEventListener('click', function () {
-                console.log('bookCover was clicked' + this.id); openModal()
-             });
+                console.log('bookCover was clicked' + this.id); openModal(input[i]);
+            });
         };
+
+        startEventListener();
 
         div = document.createElement('div');
         div.setAttribute('class', 'hidden_title');
@@ -62,11 +64,88 @@ export const book2grid = (input) => {
             let bookID = "card" + i;
             document.getElementById(bookID).appendChild(div);
         }
-        
-    
+
+
     }
 };
 
-export const openModal = ()=>{
-document.getElementById('modal').style = "display:flex"
-}
+export const openModal = (input) => {
+    // document.getElementById('modal').style = "display:flex";
+
+    const html = [
+        `<div id="modal" class="modal">`,    
+        `<div class="modal_box">`,
+        `<div class="modal_grid">`,
+        `<div>`,
+        `<div class="book_cover">`,
+        `<img class="book_cover__image" src="${input.imageLinks}">`,
+        `</div>`,
+        `</div>`,
+        `<div>`,
+        `<div class="book_title">`,
+        `<h2>${input.title}</h2>`,
+        `</div>`,
+        `<div class="book_data">`,
+        `<div class="book_author">`,
+        `<h4>Author:</h4>`,
+        `<p>${input.authors}</p>`,
+        `</div>`,
+        `<div class="book_published">`,
+        `<h4>Published:</h4>`,
+        // `<p>${input.publishedDate}</p>`,
+        `</div>`,
+        `<div class="book_publisher">`,
+        `<h4>Publisher:</h4>`,
+        // `<p>${input.publisher}</p>`,
+        `</div>`,
+        `<div class="book_page_count">`,
+        `<h4>Page count:</h4>`,
+        // `<p>${input.pageCount}</p>`,
+        `</div>`,
+        `<div class="book_format">`,
+        `<h4>Format:</h4>`,
+        // `<p>${input.format}</p>`,
+        `</div>`,
+        `<div class="book_language">`,
+        `<h4>Language:</h4>`,
+        // `<p>${input.language}</p>`,
+        `</div>`,
+        `<div class="book_genre">`,
+        `<h4>genre:</h4>`,
+        // `<p>${input.category}</p>`,
+        `</div>`,
+        `<div class="book_avg_rating">`,
+        `<h4>Average rating:</h4>`,
+        // `<p>${input.avgRating}</p>`,
+        `</div>`,
+        `</div>`,
+        `<div class="book_purchase">`,
+        `<div class="book_purchase--price">`,
+        // `<h4>Price:</h4><p>${input.price}</p>`,
+        `</div>`,
+        `<div>`,
+        `<h4>Link google</h4>`,
+        `</div>`,
+        `</div>`,
+        `<div class="book_synopsis">`,
+        `<h4>Synopsis:</h4>`,
+        `<p>${input.description}</p>`,
+        `</div>`,
+        `</div>`,
+        `</div>`,
+        `</div>`,
+        `</div>`,
+    ].join('');
+
+    const div = document.createElement('div');
+    // div.setAttribute('class', 'scene');
+    // div.setAttribute('id', 'book' + i);
+
+    div.innerHTML = html;
+    document.getElementById('openModal').appendChild(div);
+
+
+
+
+
+};
