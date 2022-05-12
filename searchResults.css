@@ -37,6 +37,7 @@
   height: 100%;
   width: 100%;
   backface-visibility: hidden;
+  cursor: pointer;
 }
 .card__face--front {
   text-align: center;

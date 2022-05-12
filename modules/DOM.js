@@ -61,6 +61,7 @@ export const book2grid = (input) => {
         const bookButton = document.getElementById('book' + i);
         const startEventListener = () => {
             bookButton.addEventListener('click', function () {
+                openModal(input[i])
             });
         };
 
