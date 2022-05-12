@@ -12,8 +12,7 @@ export const nothingFound = (searchString) => {
     let html = [
         `<div id="nothingFound" class="nothing-found">`,
         `<div class="nothing-card">`,
-        `<p style="padding-top:.33em">Your search - <span><em>${searchString}</em></span> - did not match
-                    any book results.</p>`,
+        `<p style="padding-top:.33em">Your search - <span><em>${searchString}</em></span> - did not match any book results.</p>`,
         `<p style="margin-top:1em">Suggestions:</p>`,
         `<ul style="margin-left:1.3em;margin-bottom:2em">`,
         `<li>Make sure that all words are spelled correctly.</li>`,
