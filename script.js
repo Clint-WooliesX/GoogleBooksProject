@@ -4,12 +4,12 @@ import { book2grid, domModuleReady, clearPage ,nothingFound} from './modules/DOM
 console.log('Script.JS Ready...');
 domModuleReady();
 
-export const coverPlaceHolder = "./images/bookCover.png";
 let bookCollection = [];
+let lastSearch;
+export const coverPlaceHolder = "./images/bookCover.png";
 const searchInput = document.getElementById('searchInput');
 const submitButton = document.getElementById('submitButton');
 const gBooksURL = 'https://www.googleapis.com/books/v1/volumes?q=';
-let lastSearch;
 
 
 const startEventListener = () => {
