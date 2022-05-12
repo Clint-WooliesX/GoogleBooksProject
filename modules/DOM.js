@@ -1,18 +1,22 @@
 import { bookShelf, coverPlaceHolder } from '../script.js';
+
 export const domModuleReady = () => {
     console.log('DOM module is ready...');
-    console.log(bookShelf);
 };
 
 export const clearPage = () => {
+    try {
+        document.getElementById('nothingFound').remove();
+    }
+    catch (error) {
+        console.log(error);
+    }
     try {
         console.log('clearPage has been run ');
         for (let i = 0; i < 12; i++) {
             let element = "book" + i;
             document.getElementById(element).remove();
-            console.log('#########book' + i + ' removed');
         };
-        console.log('reset bookShelf');
         bookShelf.length = 0;
     }
     catch (error) {
@@ -20,10 +24,34 @@ export const clearPage = () => {
     }
 };
 
+export const nothingFound = (searchString) => {
+    let html = [
+        `<div id="nothingFound" class="nothing-found">`,
+        `<div class="nothing-card">`,
+        `<p style="padding-top:.33em">Your search - <span><em>${searchString}</em></span> - did not match
+                    any book results.</p>`,
+        `<p style="margin-top:1em">Suggestions:</p>`,
+        `<ul style="margin-left:1.3em;margin-bottom:2em">`,
+        `<li>Make sure that all words are spelled correctly.</li>`,
+        `<li>Try different keywords.</li>`,
+        `<li>Try more general keywords.</li>`,
+        `<li>Try fewer keywords.</li>`,
+        `</ul>`,
+        `</div>`,
+        `</div>`,
+    ].join('');
+
+    let div = document.createElement('div');
+    div.setAttribute('id', 'nothingFound');
+    div.innerHTML = html;
+    document.getElementById('search-results').appendChild(div);
+};
+
+
 
 export const book2grid = (input) => {
     for (let i = 0; i <= input.length - 1; i++) {
-        var html = [
+        let html = [
             // '<div class="scene">',
             `<div class="card">`,
             `<div id="card${i}" class="card__face card__face--front"><img class="cover" src=${input[i].imageLinks}></div>`,
@@ -38,8 +66,6 @@ export const book2grid = (input) => {
             // '</div>',
         ].join('');
 
-
-
         let div = document.createElement('div');
         div.setAttribute('class', 'scene');
         div.setAttribute('id', 'book' + i);
@@ -50,7 +76,6 @@ export const book2grid = (input) => {
         const bookButton = document.getElementById('book' + i);
         const startEventListener = () => {
             bookButton.addEventListener('click', function () {
-                console.log('bookCover was clicked' + this.id); openModal(input[i]);
             });
         };
 
@@ -64,14 +89,10 @@ export const book2grid = (input) => {
             let bookID = "card" + i;
             document.getElementById(bookID).appendChild(div);
         }
-
-
     }
 };
 
 export const openModal = (input) => {
-    // document.getElementById('modal').style = "display:flex";
-
     const html = [
         `<div id="modal" class="modal">`,
         `<div class="modal_box">`,
@@ -80,7 +101,6 @@ export const openModal = (input) => {
         `<div>`,
         `<div class="book_cover">`,
         `<img class="book_cover__image" src="${input.imageLinks}">`,
-        // `<img class="book_cover__image" src="https://books.google.com/books/content?id=${input.id}&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api">`,
         `</div>`,
         `</div>`,
         `<div>`,
@@ -140,8 +160,6 @@ export const openModal = (input) => {
     ].join('');
 
     const div = document.createElement('div');
-    // div.setAttribute('class', 'scene');
-    // div.setAttribute('id', 'book' + i);
 
     div.innerHTML = html;
     document.getElementById('openModal').appendChild(div);
@@ -150,13 +168,8 @@ export const openModal = (input) => {
     const startEventListener = () => {
         closeButton.addEventListener('click', function () {
             console.log('close button clicked');
-             document.getElementById('modal').remove();
+            document.getElementById('modal').remove();
         });
-        
     };
     startEventListener();
-
-
-
-
 };

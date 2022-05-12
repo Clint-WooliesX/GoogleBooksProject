@@ -220,3 +220,8 @@ header {
 .banner-image {
   height: 150px;
 }
+
+.nothing-found {
+  display: flex;
+  justify-content: center;
+}
