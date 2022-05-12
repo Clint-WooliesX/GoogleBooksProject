@@ -233,3 +233,13 @@ header {
   display: flex;
   justify-content: center;
 }
+
+footer {
+  justify-content: center;
+  align-items: center;
+  height: 22px;
+  width: 100%;
+  display: flex;
+  position: relative;
+  bottom: 0px;
+}

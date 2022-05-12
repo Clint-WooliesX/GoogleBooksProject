@@ -1,16 +1,15 @@
-export const bookShelf = [];
+
 import { book2grid, domModuleReady, clearPage ,nothingFound} from './modules/DOM.js';
 
 console.log('Script.JS Ready...');
 domModuleReady();
 
-let bookCollection = [];
-let lastSearch;
 export const coverPlaceHolder = "./images/bookCover.png";
 const searchInput = document.getElementById('searchInput');
 const submitButton = document.getElementById('submitButton');
 const gBooksURL = 'https://www.googleapis.com/books/v1/volumes?q=';
-
+let bookCollection = [];
+let lastSearch;
 
 const startEventListener = () => {
     submitButton.addEventListener('click', function () { fetchJson(searchInput.value); });
@@ -24,7 +23,7 @@ const cleanSearchString = (input) => {
 };
 
 const submitSearch = (input) => {
-    return gBooksURL + cleanSearchString(input) + "&maxResults=12";
+    return gBooksURL + cleanSearchString(input) + "&maxResults=36";
 };
 
 const fetchJson = async (input) => {
@@ -148,8 +147,6 @@ const fetchJson = async (input) => {
     };
 
     book2grid(bookCollection);
-
-    bookShelf.push(bookCollection);
 };
 
 startEventListener();

@@ -1,4 +1,4 @@
-import { bookShelf, coverPlaceHolder } from '../script.js';
+import {coverPlaceHolder } from '../script.js';
 
 export const domModuleReady = () => {
     console.log('DOM module is ready...');
