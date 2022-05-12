@@ -30,8 +30,6 @@ export const nothingFound = (searchString) => {
     document.getElementById('search-results').appendChild(div);
 };
 
-
-
 export const book2grid = (input) => {
     for (let i = 0; i <= input.length - 1; i++) {
         let html = [
