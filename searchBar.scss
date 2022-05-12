@@ -1,0 +1,33 @@
+// Search bar styling
+
+.search-bar {
+  width: 90%;
+  padding: 10px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  &__input {
+    width: 650px;
+    height: 39px;
+    padding-left: 10px;
+    font-size: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-right: 0px;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__button {
+    height: 39px;
+    width: 100px;
+    font-size: 20px;
+    border-left: 0px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+}
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
