@@ -15,6 +15,7 @@ const gBooksURL = 'https://www.googleapis.com/books/v1/volumes?q=';
 const startEventListener = () => {
     submitButton.addEventListener('click', function () { fetchJson(searchInput.value); });
 };
+
 const cleanSearchString = (input) => {
     lastSearch = input;
     const regex = /[a-zA-Z0-9" "]/g;
