@@ -1,3 +1,8 @@
+@import "./variables.scss";
+@import "./searchBar.scss";
+@import "./searchResults.scss";
+@import "./modal.scss";
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -11,7 +16,5 @@ header {
 .banner-image {
   height: 150px;
 }
-
-
 
 

@@ -15,13 +15,13 @@
   padding: 15px;
   position: fixed;
   overflow: hidden;
-  background-color: antiquewhite;
+  background-color: whitesmoke;
   border-radius: 20px;
   border: 10px solid;
-  border-left-color: blue;
   border-top-color: red;
   border-right-color: yellow;
   border-bottom-color: green;
+  border-left-color: blue;
   box-shadow: 0 0 0 max(100vh, 100vw) rgba(0, 0, 0, 0.7);
 }
 

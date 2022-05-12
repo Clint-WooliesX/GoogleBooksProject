@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 .modal {
   display: flex;
   justify-content: center;
@@ -14,13 +16,13 @@
   padding: 15px;
   position: fixed;
   overflow: hidden;
-  background-color: antiquewhite;
+  background-color: $col-card-back;
   border-radius: 20px;
   border: 10px solid;
-  border-left-color: blue;
-  border-top-color: red;
-  border-right-color: yellow;
-  border-bottom-color: green;
+  border-top-color: $col-border-top;
+  border-right-color: $col-border-right;
+  border-bottom-color: $col-border-bottom;
+  border-left-color: $col-border-Left;
   box-shadow: 0 0 0 max(100vh, 100vw) rgba(0, 0, 0, 0.7);
 }
 .modal_grid {
