@@ -31,10 +31,8 @@ const fetchJson = async (input) => {
     clearPage();
     const response = await fetch(submitSearch(input));
     const books = await response.json();
-    let i = 0;
     try {
         bookCollection = books.items.map((volume) => {
-            console.log('book' + i++);
             const output = {};
             try {
                 if (volume.volumeInfo.publishedDate)

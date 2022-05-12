@@ -152,7 +152,6 @@ export const openModal = (input) => {
     const closeButton = document.getElementById('closeModal');
     const startEventListener = () => {
         closeButton.addEventListener('click', function () {
-            console.log('close button clicked');
             document.getElementById('modal').remove();
         });
     };
