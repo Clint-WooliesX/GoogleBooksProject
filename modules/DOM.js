@@ -5,23 +5,7 @@ export const domModuleReady = () => {
 };
 
 export const clearPage = () => {
-    try {
-        document.getElementById('nothingFound').remove();
-    }
-    catch (error) {
-        console.log(error);
-    }
-    try {
-        console.log('clearPage has been run ');
-        for (let i = 0; i < 12; i++) {
-            let element = "book" + i;
-            document.getElementById(element).remove();
-        };
-        bookShelf.length = 0;
-    }
-    catch (error) {
-        console.log(error);
-    }
+    document.getElementById('search-results').innerHTML=""
 };
 
 export const nothingFound = (searchString) => {
