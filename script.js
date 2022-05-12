@@ -36,7 +36,6 @@ const fetchJson = async (input) => {
         bookCollection = books.items.map((volume) => {
             console.log('book' + i++);
             const output = {};
-            // Book publish date
             try {
                 if (volume.volumeInfo.publishedDate)
                     output.publishedDate = volume.volumeInfo.publishedDate;
@@ -45,9 +44,6 @@ const fetchJson = async (input) => {
             catch (error) {
                 output.publishedDate = "Unknown";
             }
-            //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
-            // Book publisher
             try {
                 if (volume.volumeInfo.publisher)
                     output.publisher = volume.volumeInfo.publisher;
@@ -56,9 +52,6 @@ const fetchJson = async (input) => {
             catch (error) {
                 output.publisher = "Unknown";
             }
-            //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
-            // Book format
             try {
                 if (volume.id)
                     output.id = volume.id;
@@ -67,9 +60,6 @@ const fetchJson = async (input) => {
             catch (error) {
                 output.id = "Unknown";
             }
-            //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
-            // Book language
             try {
                 if (volume.volumeInfo.language)
                     output.language = volume.volumeInfo.language;
@@ -78,9 +68,6 @@ const fetchJson = async (input) => {
             catch (error) {
                 output.language = "Unknown";
             }
-            //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
-            // Book Title
             try {
                 if (volume.volumeInfo.title)
                     output.title = volume.volumeInfo.title;
@@ -89,9 +76,6 @@ const fetchJson = async (input) => {
             catch (error) {
                 output.title = "Unknown";
             }
-            //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
-            // Book description
             try {
                 if (volume.volumeInfo.description)
                     output.description = volume.volumeInfo.description;
@@ -100,9 +84,6 @@ const fetchJson = async (input) => {
             catch (error) {
                 output.description = "Unknown";
             }
-            //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
-            // Book author
             try {
                 if (volume.volumeInfo.authors) {
                     for (let i = 0; i <= volume.volumeInfo.authors.length - 1; i++)
@@ -113,9 +94,6 @@ const fetchJson = async (input) => {
             catch (error) {
                 output.author = "Unknown";
             }
-            //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
-            // Book page count
             try {
                 if (volume.volumeInfo.pageCount)
                     output.pageCount = volume.volumeInfo.pageCount;
@@ -124,9 +102,6 @@ const fetchJson = async (input) => {
             catch (error) {
                 output.pageCount = "Unknown";
             }
-            //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
-            // Book categories  
             try {
                 if (volume.volumeInfo.categories) {
                     for (let i = 0; i <= volume.volumeInfo.categories.length - 1; i++)
@@ -137,9 +112,6 @@ const fetchJson = async (input) => {
             catch (error) {
                 output.categories = "Unknown";
             }
-            //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
-            // Book average rating
             try {
                 if (volume.volumeInfo.averageRating)
                     output.averageRating = volume.volumeInfo.averageRating;
@@ -148,8 +120,6 @@ const fetchJson = async (input) => {
             catch (error) {
                 output.averageRating = "No ratings";
             }
-            //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-            // Book price
             try {
                 if (volume.saleInfo.retailPrice)
                     output.retailPrice = volume.saleInfo.retailPrice.amount;
@@ -158,9 +128,6 @@ const fetchJson = async (input) => {
             catch (error) {
                 output.averageRating = "an error";
             }
-            //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
-            //book image
             try {
                 if (volume.volumeInfo.imageLinks['thumbnail'])
                     output.imageLinks = volume.volumeInfo.imageLinks['thumbnail'];
@@ -168,8 +135,6 @@ const fetchJson = async (input) => {
             catch (error) {
                 output.imageLinks = coverPlaceHolder;
             }
-            //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-            //book link
             try {
                 if (volume.volumeInfo.infoLink)
                     output.infoLink = volume.volumeInfo.infoLink;
@@ -177,7 +142,6 @@ const fetchJson = async (input) => {
             catch (error) {
                 output.infoLink = "#";
             }
-            //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             return output;
         });
     }
