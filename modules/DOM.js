@@ -81,7 +81,7 @@ export const openModal = (input) => {
     const html = [
         `<div id="modal" class="modal">`,
         `<div class="modal_box">`,
-        `<div class="close"><p id="closeModal">Close</p></div>`,
+        `<div class="close"><p id="closeModal">X</p></div>`,
         `<div class="modal_grid">`,
         `<div>`,
         `<div class="book_cover">`,
